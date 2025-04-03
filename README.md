@@ -1,4 +1,5 @@
 -Key Features to be implemented 
+
 1. GCNN with Transfer Learning 
 What It Is : 
 • GCNN processes molecular graphs to extract structural and physicochemical 
@@ -9,7 +10,8 @@ Why It’s Beneficial :
 • Captures rich molecular structural information (e.g., functional groups, bond types). 
 • Generalizes to unseen molecules by leveraging pre-trained knowledge. 
 • Improves performance in low-data scenarios (e.g., the PLAI dataset with 181 drug 
-release profiles). 
+release profiles).
+
 Implementation Steps : 
 1. Reconstruct Molecular Structures : 
 • Use RDKit to generate SMILES strings for drugs and polymers in the PLAI 
@@ -25,7 +27,8 @@ dataset.
 • Combine GCNN-generated fingerprint vectors with traditional descriptors to 
 form the Intermediate Input Vector (IIV) . 
 5. Train Models : 
-• Use IIVs as inputs for models like LGBM, SNN, or neural networks. 
+• Use IIVs as inputs for models like LGBM, SNN, or neural networks.
+
 2. Siamese Neural Networks (SNN) ( Allows for Classification) 
 What It Is : 
 • SNN compares pairs of inputs (e.g., successful vs. unsuccessful formulations) to 
@@ -33,7 +36,8 @@ classify new examples based on similarity.
 Why It’s Beneficial : 
 • Excels in low-data regimes (e.g., 181 drug release profiles). 
 • Learns similarity metrics for one-shot/few-shot learning. 
-• Provides probabilistic outputs for success/failure classification. 
+• Provides probabilistic outputs for success/failure classification.
+
 Implementation Steps : 
 1. Define Success Criteria : 
 • Set thresholds for fractional drug release (e.g., T=1.0 > 0.8 for slow-release). 
@@ -47,7 +51,8 @@ maximize it for dissimilar pairs.
 4. Predict New Formulations : 
 • Compare new formulations to a support set of known successful examples. 
 • Aggregate similarity scores to classify the new formulation. 
-• SNN would enable classification of formulations as "successful" or "unsuccessful." 
+• SNN would enable classification of formulations as "successful" or "unsuccessful."
+
 3. Active Learning 
 What It Is : 
 • Iteratively select the most informative samples for experimental validation. 
@@ -68,7 +73,8 @@ What It Is :
 drug-polymer combinations and experimental conditions. 
 Why It’s Beneficial : 
 • Increases dataset size and diversity, improving model robustness. 
-• Reduces bias and overfitting in low-data scenarios. 
+• Reduces bias and overfitting in low-data scenarios.
+
 Implementation Steps : 
 1. Scrape Data : 
 • Use tools like BeautifulSoup or Scrapy to extract data from recent 
@@ -87,7 +93,8 @@ What It Is :
 remove noisy or outlier data points. 
 Why It’s Beneficial : 
 • Reduces noise that could distort PCA or model training. 
-• Improves interpretability and generalization. 
+• Improves interpretability and generalization.
+
 Implementation Steps : 
 1. Apply Clustering : 
 • Cluster the dataset using DBSCAN or hierarchical clustering. 
@@ -134,15 +141,19 @@ Implementation Steps :
 • Use shap.TreeExplainer for tree-based models or shap.GradientExplainer for 
 neural networks. 
 3. Visualize : 
-• Generate summary plots, force plots, or heatmaps to interpret results. - Experimental Implementations(Require a Lot of Domain 
-Knowledge and Understanding Maths and probability) : 
+• Generate summary plots, force plots, or heatmaps to interpret results.
+
+- Experimental Implementations(Require a Lot of Domain 
+Knowledge and Understanding Maths and probability) :
+
 1. Incoperating Physic Model 
 What It Is : 
 • Integrate domain knowledge (e.g., polymer degradation kinetics, diffusion 
 equations) into ML models. 
 Why It’s Beneficial : 
 • Ensures predictions align with physical laws. 
-• Reduces overfitting to noise. 
+• Reduces overfitting to noise.
+
 Implementation Steps : 
 1. Define Physical Constraints : 
 • Incorporate equations like Fick’s Law or hydrolysis rates into the loss 
@@ -155,7 +166,8 @@ What It Is :
 efficiently. 
 Why It’s Beneficial : 
 • Finds optimal hyperparameters faster than grid/random search. 
-• Works well for expensive-to-train models like GCNN+SNN. 
+• Works well for expensive-to-train models like GCNN+SNN.
+
 Implementation Steps : 
 1. Define Search Space : 
 • Specify hyperparameters (e.g., learning rate, number of GCNN layers). 
