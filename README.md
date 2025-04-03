@@ -1,6 +1,6 @@
 -Key Features to be implemented 
 
-1. GCNN with Transfer Learning 
+1. GCNN with Transfer Learning
 What It Is : 
 • GCNN processes molecular graphs to extract structural and physicochemical 
 information about drugs and polymers. 
@@ -31,8 +31,7 @@ form the Intermediate Input Vector (IIV) .
 
 2. Siamese Neural Networks (SNN) ( Allows for Classification) 
 What It Is : 
-• SNN compares pairs of inputs (e.g., successful vs. unsuccessful formulations) to 
-classify new examples based on similarity. 
+• SNN compares pairs of inputs (e.g., successful vs. unsuccessful formulations) to classify new examples based on similarity. 
 Why It’s Beneficial : 
 • Excels in low-data regimes (e.g., 181 drug release profiles). 
 • Learns similarity metrics for one-shot/few-shot learning. 
