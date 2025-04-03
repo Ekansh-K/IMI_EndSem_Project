@@ -170,7 +170,8 @@ What It Is :
 dataset. 
 Why It’s Beneficial : 
 • Addresses data scarcity by creating realistic synthetic examples. 
-• Enables training of complex models like neural networks. 
+• Enables training of complex models like neural networks.
+
 Implementation Steps : 
 1. Generate Synthetic Examples : 
 • Use the trained SNN to sample new conditions (e.g., pH, temperature). 
