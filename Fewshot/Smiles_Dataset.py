@@ -92,10 +92,42 @@ def main():
     """
     Main function to execute the SMILES addition process.
     """
-    input_csv = 'Dataset_17_feat.csv'  # Fixed filename format
-    output_csv = 'expanded_dataset_with_smiles.csv'
+    # Set the correct file paths using os.path.join for cross-platform compatibility
+    base_dir = r"c:\Users\ekans\OneDrive\Desktop\Btech\Sem-2\Material Informatics\IMI_EndSem_Project"
+    input_file = "Dataset_17_feat.csv"  # Adjust the filename to match your actual file
+    input_csv = os.path.join(base_dir, input_file)
+    output_csv = os.path.join(base_dir, 'expanded_dataset_with_smiles.csv')
     
     try:
+        # Print file existence check for debugging
+        print(f"Checking for input file at: {input_csv}")
+        if not os.path.exists(input_csv):
+            # Try alternate filenames if the file isn't found
+            potential_files = [
+                "Dataset_17_feat.csv",
+                "Dataset_17_feat (1).csv",
+                "Dataset_17_feat_(1).csv"
+            ]
+            
+            for alt_file in potential_files:
+                alt_path = os.path.join(base_dir, alt_file)
+                if os.path.exists(alt_path):
+                    input_csv = alt_path
+                    print(f"Found input file at: {input_csv}")
+                    break
+            else:
+                # If no file was found after trying alternatives
+                print("Available files in directory:")
+                for file in os.listdir(base_dir):
+                    if file.endswith('.csv'):
+                        print(f" - {file}")
+                raise FileNotFoundError(f"Could not find input dataset file in {base_dir}")
+        
+        # Check if file is readable before processing
+        with open(input_csv, 'r') as f:
+            # Just checking if we can open the file
+            pass
+        
         add_smiles_columns(input_csv, output_csv)
         
         # Verify the output
