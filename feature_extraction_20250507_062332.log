@@ -1,0 +1,76 @@
+2025-05-07 06:23:32,492 - INFO - Starting feature extraction and analysis process...
+2025-05-07 06:23:32,492 - INFO - Loading Dataset_17_feat.xlsx...
+2025-05-07 06:23:32,944 - INFO - Dataset loaded successfully with shape: (3783, 20)
+2025-05-07 06:23:32,945 - INFO - Processing features...
+2025-05-07 06:23:32,945 - INFO - Missing value statistics before processing:
+2025-05-07 06:23:32,946 - INFO - 
+Series([], dtype: int64)
+2025-05-07 06:23:32,964 - INFO - Missing value statistics after processing:
+2025-05-07 06:23:32,966 - INFO - 
+MW_Ratio    127
+dtype: int64
+2025-05-07 06:23:32,968 - INFO - Processed features. New shape: (3783, 27)
+2025-05-07 06:23:32,969 - INFO - Analyzing features...
+2025-05-07 06:23:32,970 - INFO - Handling missing values in numerical data...
+2025-05-07 06:23:34,011 - INFO - Feature statistics before MI calculation:
+2025-05-07 06:23:34,013 - INFO - NaN values in features:
+LA/GA                  0
+Polymer_MW             0
+CL Ratio               0
+Drug_Tm                0
+Drug_Pka               0
+Initial D/M ratio      0
+DLC                    0
+SA-V                   0
+SE                     0
+Drug_Mw                0
+Drug_TPSA              0
+Drug_NHA               0
+Drug_LogP              0
+Time                   0
+Release                0
+LA_Fraction            0
+Log_Polymer_MW         0
+CL_Ratio_Normalized    0
+MW_Ratio               0
+LogP_Normalized        0
+Initial_Burst          0
+Release_Rate           0
+dtype: int64
+2025-05-07 06:23:34,092 - INFO - Feature ranges:
+             LA/GA   Polymer_MW  ...  Initial_Burst  Release_Rate
+count  3783.000000  3783.000000  ...    3783.000000   3783.000000
+mean     -0.195272     0.130629  ...       0.051518      0.113322
+std       1.014593     0.840265  ...       0.052741      0.106896
+min      -1.000000    -0.817241  ...       0.001305      0.003479
+25%      -1.000000    -0.586207  ...       0.010860      0.033908
+50%       0.000000     0.000000  ...       0.042121      0.088158
+75%       0.000000     0.413793  ...       0.069454      0.157505
+max       2.000000     2.620690  ...       0.314926      0.627500
+
+[8 rows x 22 columns]
+2025-05-07 06:23:34,138 - ERROR - Error in feature analysis: Input X contains infinity or a value too large for dtype('float64').
+2025-05-07 06:23:34,138 - ERROR - Full error details:
+Traceback (most recent call last):
+  File "c:\Users\drsak\OneDrive\Desktop\IMI_EndSem_Project\Feature_Extraction_LAI.py", line 151, in analyze_features
+    mi_scores = mutual_info_classif(X, y, random_state=42)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\drsak\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sklearn\utils\_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\drsak\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sklearn\feature_selection\_mutual_info.py", line 571, in mutual_info_classif
+    return _estimate_mi(
+           ^^^^^^^^^^^^^
+  File "C:\Users\drsak\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sklearn\feature_selection\_mutual_info.py", line 271, in _estimate_mi
+    X, y = check_X_y(X, y, accept_sparse="csc", y_numeric=not discrete_target)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\drsak\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sklearn\utils\validation.py", line 1370, in check_X_y
+    X = check_array(
+        ^^^^^^^^^^^^
+  File "C:\Users\drsak\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sklearn\utils\validation.py", line 1107, in check_array
+    _assert_all_finite(
+  File "C:\Users\drsak\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sklearn\utils\validation.py", line 120, in _assert_all_finite
+    _assert_all_finite_element_wise(
+  File "C:\Users\drsak\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sklearn\utils\validation.py", line 169, in _assert_all_finite_element_wise
+    raise ValueError(msg_err)
+ValueError: Input X contains infinity or a value too large for dtype('float64').
